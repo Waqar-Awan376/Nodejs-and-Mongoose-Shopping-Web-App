@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+    <title>
+        <%= pageTitle %>
+    </title>
+    </head>
+
+    <body>
+        <%- include('../includes/userNav.ejs') %>
+
+        <main class="p-3">
+            <% if (products.length > 0) { %>
+                    <% for (let product of products) { %>
+                        <div class="card shadow-lg my-4 w-100" style="width: 18rem;">
+                            <div class="d-flex justify-content-center">
+                                <img src="/<%= product.productId.imageURL %>" class="card-img-top p-4 w-25" alt="<%= product.title %>">
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                <%= product.productId.title %>
+                              </h5>
+                              <h5 class="card-title">Quantity <%= product.quantity %>
+                              </h5>
+                              <p class="card-text">
+                                <%= product.productId.description %>
+                              </p>
+              
+                              <form class="text-center my-2" action="/user/detail/<%= product._id %>" method="GET">
+                                <button type="submit" class="btn btn-success">Details</button>
+                              </form>
+                              <form class="text-center my-2" action="/user/addToCart" method="post">
+                                <button type="submit" class="btn btn-info text-white" onclick="showToast()">Add to Cart</button>
+                                <input type="hidden" name="productId" value="<%= product._id %>">
+                              </form>
+                            </div>
+                        </div>
+                    <% } %>
+                <hr>
+                <div class="centered">
+                    <form action="/create-order" method="POST">
+                        <button type="submit" class="btn">Order Now!</button>
+                    </form>
+                </div>
+                
+            <% } else { %>
+                <h1>No Products in Cart!</h1>
+            <% } %>
+        </main>
+    </body>
+    <%- include('../includes/tail.ejs') %>

@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+<title><%= pageTitle %></title>
+</head>
+  <body>
+    <%- include('../includes/nav.ejs') %>
+    <div class="container p-3">
+        <h1 class="bg-light p-2 text-center m-2">REGISTER</h1>
+        <form method="POST" action="/auth/register" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="reg_input" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="reg_input" name="reg_email" aria-describedby="emailHelp" required>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="reg_username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="reg_username" name="reg_username" aria-describedby="emailHelp" required>
+              </div>
+            <div class="mb-3">
+              <label for="reg_password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="reg_password" id="reg_password" required>
+            </div>
+            <div class="mb-3">
+                <label for="reg_confirm_password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="reg_confirm_password" id="reg_confirm_password" required>
+            </div>
+            <div class="mb-3">
+                <label for="reg_image" class="form-label">Choose Image</label>
+                <input type="file" accept="image/*" name="image" class="form-control" id="reg_image" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+  </body>
+
+  <%- include('../includes/tail.ejs') %>

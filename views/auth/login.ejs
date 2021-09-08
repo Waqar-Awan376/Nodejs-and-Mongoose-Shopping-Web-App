@@ -1,0 +1,23 @@
+<%- include('../includes/head.ejs') %>
+<title><%= pageTitle %></title>
+</head>
+  <body>
+    <%- include('../includes/nav.ejs') %>
+    <div class="container p-3">
+      <h1 class="bg-light p-2 text-center m-2">LOGIN</h1>
+        <form method="POST" action="/auth/login">
+            <div class="mb-3">
+              <label for="login_input" class="form-label">Email address</label>
+              <input type="email" class="form-control" name="login_email" id="login_input" required>
+            </div>
+            <div class="mb-3">
+              <label for="login_password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="login_password" id="login_password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+    </div>
+
+  </body>
+
+  <%- include('../includes/tail.ejs') %>

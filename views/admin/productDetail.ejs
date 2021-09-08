@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+    <title>
+        <%= pageTitle %>
+    </title>
+    </head>
+
+    <body>
+        <%- include('../includes/adminNav.ejs') %>
+
+            <div class="d-flex justify-content-center">
+                <div class="card m-3 w-50 text-center" style="width: 18rem;">
+                    <img src="/<%= product.imageURL %>" class="card-img-top" alt="<%= product.title %>"
+                        width="800">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= product.title %>
+                        </h5>
+                        <h5 class="card-title">Rs. <%= product.price %>
+                        </h5>
+                        <p class="card-text">
+                            <%= product.description %>
+                        </p>
+                        <form action="/admin/index" method="GET">
+                            <button type="submit" class="btn btn-danger">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+    </body>
+    <%- include('../includes/tail.ejs') %>

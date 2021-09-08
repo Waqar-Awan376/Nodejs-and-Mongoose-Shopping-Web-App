@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %> 
+<title><%= pageTitle %></title>
+</head>
+  <body>
+    <%- include('../includes/adminNav.ejs') %>
+
+    <div class="container p-3">
+        <h1 class="bg-light p-2 text-center m-4">ADD PRODUCT</h1>
+        <form method="POST" action="/admin/addProduct" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="prod_title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="prod_title" name="prod_title" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+                <label for="prod_price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="prod_price" name="prod_price" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+              <label for="prod_description" class="form-label">Description</label>
+              <input type="text" class="form-control" name="prod_description" id="prod_description" required>
+            </div>
+            <div class="mb-3">
+                <label for="prod_image" class="form-label">Choose Image</label>
+                <input type="file" accept="image/*" class="form-control" name="image" id="prod_image" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+
+
+  </body>
+<%- include('../includes/tail.ejs') %>
